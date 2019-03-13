@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>幻灵战歌</title>
+  <link href="https://cdn.bootcss.com/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+  <link href="https://cdn.bootcss.com/Swiper/4.4.6/css/swiper.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <!-- built files will be auto injected -->
+  <script>
+    (function (doc, win) {
+      var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+          var clientWidth = docEl.clientWidth;
+          if (!clientWidth) return;
+          if (clientWidth >= 750) {
+            docEl.style.fontSize = '100px';
+          } else {
+            docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+          }
+        };
+      if (!doc.addEventListener) return;
+      win.addEventListener(resizeEvt, recalc, false);
+      doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+  </script>
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/Swiper/4.4.6/js/swiper.min.js"></script>
+  <script src="https://cdn.bootcss.com/vue-lazyload/1.2.6/vue-lazyload.js"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+  <script>
+    $.ajax({
+      url: 'http://yy.dlam.nextjoy.com/hlzg/getChatSdkData?url=' + encodeURIComponent(window.location.href) + '&v=' +
+      new Date().getTime(),
+      success: function (data) {
+        if (data.code == 200) {
+          data = data.data;
+          var link = 'http://m.game.nextjoy.com/hlzg';
+          // if (winOcx.getUrlOptions.channel) {
+          //   link = link + '?channel=' + winOcx.getUrlOptions.channel
+          // }
+          var shareObj = {
+            title: '幻灵战歌火爆公测中,登陆即送SSR',
+            desc: '新服开启,快来召唤伙伴,一起进入大陆冒险吧!!',
+            link: link,
+            imgUrl: 'http://m.game.nextjoy.com/hlzg/static/img/icon.png'
+          };
+          wx.config({
+            debug: false,
+            appId: data.appId,
+            timestamp: data.timestamp,
+            nonceStr: data.nonceStr,
+            signature: data.signature,
+            jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareWeibo',
+              'onMenuShareQZone'
+            ]
+          });
+          wx.ready(function () {
+            //朋友圈
+            wx.onMenuShareTimeline(shareObj);
+            //分享给朋友
+            wx.onMenuShareAppMessage(shareObj);
+            //分享到QQ
+            wx.onMenuShareQQ(shareObj);
+            //分享到腾讯微博
+            wx.onMenuShareWeibo(shareObj);
+            //分享到QQ空间
+            wx.onMenuShareQZone(shareObj);
+          });
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
