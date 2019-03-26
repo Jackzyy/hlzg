@@ -44,5 +44,13 @@ export default new Router({
       path: '/article/news/8',
       component: ()=> import('@/views/Article/Article8.vue')
     },
+    {
+      path: '/article/news/9',
+      component: ()=> import('@/views/Article/Article9.vue')
+    },
+    {
+      path: '/article/news/10',
+      component: ()=> import('@/views/Article/Article10.vue')
+    },
   ]
 })

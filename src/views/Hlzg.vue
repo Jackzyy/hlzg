@@ -63,6 +63,22 @@
                         <div @click="newsNavClick(4)" :class="newsNavIndex=='4'?'news-active':'news-normal'">活动<i></i></div>
                     </div>
                     <div v-if="newsNavIndex== 0" class="news-items">
+                        <div class="news-item" @click="goDetail(10)">
+                            <div class="news-title">
+                                [公告]《幻灵战歌》线上活动汇总 (正式上线版本)
+                            </div>
+                            <div class="news-time">
+                                [03-26]
+                            </div>
+                        </div>
+                        <div class="news-item" @click="goDetail(9)">
+                            <div class="news-title">
+                                [公告]《幻灵战歌》抽卡概率公式
+                            </div>
+                            <div class="news-time">
+                                [03-22]
+                            </div>
+                        </div>
                         <div class="news-item" @click="goDetail(8)">
                             <div class="news-title">
                                 [活动]《幻灵战歌》克拉拉的献礼活动
@@ -87,22 +103,6 @@
                                 [02-27]
                             </div>
                         </div>
-                        <div class="news-item" @click="goDetail(2)">
-                            <div class="news-title">
-                                [攻略]《幻灵战歌》攻略-矿山资源篇
-                            </div>
-                            <div class="news-time">
-                                [02-01]
-                            </div>
-                        </div>
-                        <div class="news-item" @click="goDetail(3)">
-                            <div class="news-title">
-                                [攻略]《幻灵战歌》攻略-商店篇
-                            </div>
-                            <div class="news-time">
-                                [01-19]
-                            </div>
-                        </div>
                     </div>
                     <div v-if="newsNavIndex== 1" class="news-items">
                         <div class="news-item" @click="goDetail(4)">
@@ -123,6 +123,22 @@
                         </div>
                     </div>
                     <div v-if="newsNavIndex== 2" class="news-items">
+                        <div class="news-item" @click="goDetail(10)">
+                            <div class="news-title">
+                                [公告]《幻灵战歌》线上活动汇总 (正式上线版本)
+                            </div>
+                            <div class="news-time">
+                                [03-26]
+                            </div>
+                        </div>
+                        <div class="news-item" @click="goDetail(9)">
+                            <div class="news-title">
+                                [公告]《幻灵战歌》抽卡概率公式
+                            </div>
+                            <div class="news-time">
+                                [03-22]
+                            </div>
+                        </div>
                         <div class="news-item" @click="goDetail(7)">
                             <div class="news-title">
                                 [公告]《幻灵战歌》3月5日更新公告
